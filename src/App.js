@@ -36,7 +36,6 @@ function InputButtonTag({ callback=() => {} }) {
 }
 const BASE64_PREFIX = "data:image/png;base64,";
 
-
 function App() {
   const whenInput = async (inputFile) => {
     const ImageWrapper = document.getElementById('ImageWrapper');
@@ -60,7 +59,12 @@ function App() {
   }
 
   const whenProcess = async () => {
-    console.log('Process');
+    const imgs = document.getElementsByTagName("img");
+
+    for (let i = 0; i < imgs.length; i++) {
+      const target = imgs[i].src;
+      console.log(target);
+    }
   }
 
   return (
