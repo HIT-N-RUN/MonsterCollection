@@ -1,12 +1,14 @@
-import { Footer, Header } from "../component";
+import { PageWrapper, Footer, Header } from "../component";
 
 
 function Main() {
-  return <div> 
-    <Header></Header>
-    Main 
-    <Footer></Footer>
-  </div>
+  return (
+    <PageWrapper>
+      <Header></Header>
+      Main
+      <Footer></Footer>
+    </PageWrapper>
+  )
 }
 
 export default Main;

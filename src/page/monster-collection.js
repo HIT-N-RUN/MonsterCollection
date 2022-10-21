@@ -1,12 +1,15 @@
-import { Footer, Header } from "../component";
+import { PageWrapper, Footer, Header } from "../component";
+import { MonsterCollectionClassfier } from "../container";
 
 
 function MonsterCollection() {
-  return <div> 
-    <Header></Header>
-    MonsterCollection 
-    <Footer></Footer>
-  </div>
+  return (
+    <PageWrapper>
+      <Header/>
+      <MonsterCollectionClassfier/>
+      <Footer/>
+    </PageWrapper>
+  )
 }
 
 export default MonsterCollection;

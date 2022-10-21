@@ -3,6 +3,7 @@
 import './App.css';
 // import { Header } from './component';
 import { BrowserRouter,Route, Routes } from "react-router-dom";
+import config from './config.json';
 
 // function InputFileTag({ style={}, callback=()=>{} }) {
 //   const [inputData, setInputData] = useState(null);
@@ -86,24 +87,14 @@ import RouteList from './Routing';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={config.URL_PREFIX}>
       <Routes>
         {
           RouteList.map((RouteData, index) => (
-            <Route key={`${RouteData.path}-${index}`} path={RouteData.path} element={<RouteData.Component/>}/>
+            <Route key={`${RouteData.path}-${index}`} path={RouteData.path} element={<RouteData.Page/>}/>
           ))
         }
       </Routes>
-      {/* <div style={{padding:20, border:'5px solid gray'}}>
-        <Link to="/">홈</Link><br/>
-        <Link to="/photo">사진</Link><br/>
-        <Link to="rooms">방 소개</Link><br/>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/photo" component={Photo}/>
-          <Route path="/rooms" component={Rooms}/>
-        </Switch>
-      </div> */}
     </BrowserRouter>
   )
 }

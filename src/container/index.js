@@ -1,0 +1,1 @@
+export {default as MonsterCollectionClassfier} from './monster-collection-classfier.js';
