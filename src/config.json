@@ -1,3 +1,4 @@
 {
-  "URL_PREFIX": "MonsterCollection"
+  "URL_PREFIX": "MonsterCollection",
+  "BASE64_IMG_PREFIX": "data:image/png;base64,"
 }
