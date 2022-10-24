@@ -1,15 +1,8 @@
-import Tesseract from 'tesseract.js';
 
 class Classfier {
   static AnalyzeImg = async (base64) => {
     try {
-      const result = await Tesseract.recognize(
-        base64, 'kor',
-        { 
-          logger: m => console.log(m) 
-        }
-      )
-      return result;
+
     } catch (e) {
       console.error('Analyze Img Error');
       throw new Error("--AnalyzeImg Error--");
@@ -27,7 +20,7 @@ class Classfier {
     const result = [];
     
     for (let i = 0; i < domNodes.length; i++) {
-      console.log(i, domNodes)
+      console.log(i, domNodes[i])
       result.push(
         await this.AnalyzeImgByDom(domNodes[i])
       )
