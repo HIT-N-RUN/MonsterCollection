@@ -1,7 +1,7 @@
-import { ContainerWrapper, InputFile, Gallery } from '../component';
+import { ContainerWrapper, InputFile, Gallery, AnalyzeButton } from '../component';
 import JSZip from 'jszip';
 import config from '../config.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const BASE64_PREFIX = config.BASE64_IMG_PREFIX;
 
@@ -25,12 +25,24 @@ const whenInput = async (inputFile, setFn) => {
 }
 
 function MonsterCollectionClassfier() {
-  const [images, setImages] = useState([
-  ]);
+  const [images, setImages] = useState([]);
+  const [inputFinished, setInputFinished] = useState(false);
+
+  useEffect(() => {
+    if (images.length) {
+      setInputFinished(true);
+    } else {
+      setInputFinished(false);
+    }   
+  }, [images])
+  
 
   return (
     <ContainerWrapper>
       <InputFile title="압축 파일 업로드" callback={(inputFile) => whenInput(inputFile, setImages)}/>
+      {
+        inputFinished ? <AnalyzeButton/> : (null)
+      }
       <Gallery src={images}/>
     </ContainerWrapper>
   )
